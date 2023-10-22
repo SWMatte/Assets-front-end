@@ -1,0 +1,105 @@
+<form [formGroup]="assetComputer" (ngSubmit)="onSubmit()" *ngIf="assetComputer">
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="brand" formControlName="brand" placeholder="brand">
+        </mat-form-field>
+        <p *ngIf="!assetComputer.get('brand')?.valid  && assetComputer.get('brand')?.touched">Inserire un brand valido
+        </p>
+
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="serialNumber" formControlName="serialNumber" placeholder="serialNumber">
+        </mat-form-field>
+    </span>
+
+    <br>
+    <div>
+        <mat-form-field>
+            <mat-label>Data di acquisto</mat-label>
+            <input matInput type="date" name="purchaseDate" formControlName="purchaseDate" placeholder="purchaseDate">
+        </mat-form-field>
+        <mat-error class="alert alert-danger" *ngIf="assetComputer.get('purchaseDate')?.hasError('invalidDate')
+    && assetComputer.get('purchaseDate')?.touched">
+            La data deve essere uguale o maggiore a quella odierna.
+        </mat-error>
+    </div>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="additionalSoftware" formControlName="additionalSoftware"
+                placeholder="additionalSoftware">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="additionalhardware" formControlName="additionalhardware"
+                placeholder="additionalhardware">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="hwfeatures" formControlName="hwfeatures" placeholder="hwfeatures">
+        </mat-form-field>
+    </span>
+
+    <br>
+    <mat-radio-group aria-label="Select an option" formControlName="antivirus">
+        <mat-label>Vuoi inserire antivirus?</mat-label>
+        <mat-radio-button [value]="true">Si</mat-radio-button>
+        <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+
+    <br>
+
+    <span>
+        <mat-label>Data scadenza antivirus</mat-label>
+        <mat-form-field appearance="fill">
+            <input matInput type="date" name="antivirusExpirationDate" formControlName="antivirusExpirationDate"
+                placeholder="antivirusExpirationDate">
+            <mat-error class="alert alert-danger"
+                *ngIf="assetComputer.get('antivirusExpirationDate')?.hasError('required')">
+                Antivirus obbligatorio
+            </mat-error>
+        </mat-form-field>
+    </span>
+
+
+    <br>
+    <mat-radio-group formControlName="company">
+        <mat-radio-button [value]="1">VLC2</mat-radio-button>
+        <mat-radio-button [value]="2">BLACKSHEEP</mat-radio-button>
+    </mat-radio-group>
+    <br>
+
+    <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option *ngFor="let stato of statusArray" [value]="stato">{{ stato }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div
+        *ngIf="assetComputer.get('status')?.value === 'ASSEGNATO' || assetComputer.get('status')?.value === 'DA_ASSEGNARE'">
+        <mat-form-field>
+            <mat-label>Employee</mat-label>
+            <mat-select formControlName="employee">
+                <mat-option *ngFor="let employee of listEmployees" [value]="employee.idEmployee">
+                    {{ employee.firstName }} {{ employee.lastName }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br>
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="note" formControlName="note" placeholder="note">
+        </mat-form-field>
+    </span>
+    <button type="submit" mat-raised-button [disabled]="!assetComputer.valid">Aggiungi </button>
+</form>
+ 
+<mat-spinner *ngIf="loading" > </mat-spinner>

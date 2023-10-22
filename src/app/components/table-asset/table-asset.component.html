@@ -1,0 +1,27 @@
+<div class="card-grid">
+  <div class="card" *ngFor=" let value of listView">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{value.type}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Brand: {{value.brand}}</p>
+        <p>Company: {{value.companyName}}</p>
+        <p>Nome employee: {{value.employeeFirstName}}</p>
+        <p>Cognome employee: {{value.employeeLastName}}</p>
+        <p>Presenza antivirus: {{value.hasAntivirus ===false ?"no": value.hasAntivirus ===true ? "si" : ""}}</p>
+        <p>data scadenza antivirus: {{value.antivirusExpirationDate}}</p>
+      </mat-card-content>
+      <mat-card-subtitle class="prova">
+        <button (click)="info(value)"> + info </button>
+
+      </mat-card-subtitle>
+
+    </mat-card>
+
+  </div>
+
+</div>
+
+ 
+ 

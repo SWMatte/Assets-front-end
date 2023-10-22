@@ -1,0 +1,24 @@
+<header>
+     <button mat-button (click)="openDialogComputer()">Aggiungi computer</button>
+     <button mat-button (click)="openDialogTelefono()">Aggiungi telefono</button>
+</header>
+
+<nav class="navbar navbar-light bg-light">
+     <form [formGroup]="searchParameter"  >
+        
+     <mat-form-field appearance="fill">
+               <input matInput type="text" name="searchBar" formControlName="searchBar" placeholder="searchBar" (input)="press()" />
+          </mat-form-field>
+          
+      </form>  
+
+      <mat-chip-listbox aria-label="Fish selection">
+          <mat-chip-option *ngFor="let value of statusArray" (click)="valueStatus(value)">{{value}}</mat-chip-option>
+      </mat-chip-listbox>
+ 
+</nav>
+
+<body>
+     <app-table-asset [listView]="listView"> </app-table-asset>
+</body>
+<mat-spinner *ngIf="loading"> </mat-spinner>

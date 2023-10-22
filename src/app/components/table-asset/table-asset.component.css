@@ -1,0 +1,22 @@
+.example-card {
+    max-width: 100%;
+    border: solid 1px red;
+  }
+
+  .prova{
+    background-color: yellow;
+    margin: auto;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    gap: 16px;  
+  }
+  
+  .card {
+    border: 1px solid #d3e90a;
+    padding: 16px;
+     
+  }
+  

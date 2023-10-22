@@ -1,0 +1,85 @@
+<p>asset-telefono works!</p>
+
+
+<form [formGroup]="assetTelefono" (ngSubmit)="onSubmit()">
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="stato" formControlName="stato" placeholder="stato">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="marca" formControlName="marca" placeholder="marca">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="numeroSeriale" formControlName="numeroSeriale" placeholder="numeroSeriale">
+        </mat-form-field>
+    </span>
+
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="sim" formControlName="sim" placeholder="sim">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="date" name="dataAssegnazione" formControlName="dataAssegnazione" placeholder="dataAssegnazione">
+        </mat-form-field>
+    </span>
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="date" name="dataComodato" formControlName="dataComodato" placeholder="dataComodato">
+        </mat-form-field>
+    </span>
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="date" name="dataRiconsegna" formControlName="dataRiconsegna" placeholder="dataRiconsegna">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="ram" formControlName="ram" placeholder="ram">
+        </mat-form-field>
+    </span>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="storage" formControlName="storage" placeholder="storage">
+        </mat-form-field>
+    </span>
+
+    <mat-radio-group formControlName="sistemaOperativo">
+        <mat-radio-button *ngFor="let so of systemOperative" >{{ so }}</mat-radio-button>
+    </mat-radio-group>
+
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="processore" formControlName="processore" placeholder="processore">
+        </mat-form-field>
+    </span>
+
+    
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="foglioComodato" formControlName="foglioComodato" placeholder="foglioComodato">
+        </mat-form-field>
+    </span>
+
+        
+    <span>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" name="note" formControlName="note" placeholder="note">
+        </mat-form-field>
+    </span>
+
+ 
+
+</form>

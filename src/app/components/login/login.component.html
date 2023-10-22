@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field appearance="fill">
+                    <input matInput type="text" name="email" formControlName="email" placeholder="Email">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <input matInput type="password" name="password" formControlName="password" placeholder="Password">
+                </mat-form-field>
+            </p>
+            <button type="submit" mat-raised-button>Accedi</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="form-container">
+
+    <button  (click)="logout()" type="button"  mat-raised-button>Logout</button>
+
+</div>
+
+<div *ngIf="error !== '' " class="error-message">
+    {{ error }}
+</div>
+
+
+<router-outlet></router-outlet>
