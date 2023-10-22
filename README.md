@@ -2,7 +2,7 @@
 exercise front-end of assets
 
 
-- Part of the back-end assets exercise involves creating a login that makes a request to the backend to obtain an authentication token, enabling access to other components.
+- 1 Part of the back-end assets exercise involves creating a login that makes a request to the backend to obtain an authentication token, enabling access to other components.
 
 There is a component called ASSET, which, in turn, can initiate a dialog with two other components, namely ASSET-COMPUTER and ASSET-TELEFONO. These components allow you to add a computer and a phone to the back-end, respectively.
 
